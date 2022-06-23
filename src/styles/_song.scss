@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    border:1px solid green;
+
     img {
         width: 20%;
         border-radius: 50%;
@@ -17,4 +17,12 @@
         font-size: 1rem;
     }
 
+}
+
+@media screen and (max-width: 768px){
+    .song-container {
+        img {
+            width: 60%;
+        }
+    }
 }

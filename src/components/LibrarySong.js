@@ -1,11 +1,38 @@
 import React from "react";
 
-function LibrarySong({ song }) {
+function LibrarySong({
+  song,
+  setCurrentSong,
+  audioRef,
+  isPlaying,
+  songs,
+  setSongs,
+}) {
   return (
-    <div className="song-container">
+    <div
+      onClick={() => {
+        setCurrentSong(song);
+        if (isPlaying) {
+          async function waitForTheSong() {
+            await audioRef;
+            audioRef.current.play();
+          }
+          waitForTheSong();
+        }
+        const updatedSongsList = songs.map((mappedSong) => {
+          return mappedSong.id === song.id
+            ? { ...song, active: true }
+            : { ...mappedSong, active: false };
+        });
+        setSongs(updatedSongsList);
+      }}
+      className={`library-song ${song.active ? "selected" : ""}`}
+    >
       <img src={song.cover} alt={`${song.name} ${song.artist}`} />
-      <h3>{song.name}</h3>
-      <h4>{song.artist}</h4>
+      <div className="song-description">
+        <h3>{song.name}</h3>
+        <h4>{song.artist}</h4>
+      </div>
     </div>
   );
 }

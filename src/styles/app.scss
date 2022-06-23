@@ -2,10 +2,28 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
+    font-family: 'Lato', sans-serif;
 }
 h1,h2,h3 {
     color: rgb(81, 79, 79);
 }
+
+
+h3, h3 {
+    font-weight: 400;
+    color: rgb(100,100, 100);
+}
+
+.library-on{
+    margin-left: 30%;
+}
+
+.App {
+transition: all 0.3s ease;
+}
+
+
 @import "./song";
 @import "./player";
+@import "./library";
+@import "./nav"
